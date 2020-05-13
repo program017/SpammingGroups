@@ -33,6 +33,18 @@ def Arrange_by_pirority(modules,pirority):
         modules[i]=temp_new
     return modules
 
+def Message(path,module,project):
+    if path==0:
+        mode='Delta Merge'
+    else:
+        mode="Upstream Sanity"
+    module_file=open(str(module)+'.txt','w')
+    output_message="Reminder Team, "+str(mode)+" of module: "+str(module)+" is remaining from your side for the following projects."+"\n"
+    module_file.write(output_message)
+    for i in project:
+        module_file.write(i+"\n")
+    module_file.write("Kindly finish it soon")
+    module_file.close()
 
 def SanityUpstream():
     print("Running Upstream Sanity Automation")
@@ -61,9 +73,14 @@ def SanityUpstream():
             temp_projects.append(projects.split('.')[0])
     pirority=SetPirority(temp_projects)
     print("----------Module wise-----------")
+    mode=1
     modules=Arrange_by_pirority(modules,pirority)
     for i in modules:
         print(i,modules[i])
+    print("---------Preparing Messages-----------")
+    for i in modules:
+        Message(mode,i,modules[i])
+    print("--------Message Prepared----------")
 
 def DeltaMerge():
     modules={}
@@ -94,9 +111,14 @@ def DeltaMerge():
             temp_projects.append(projects.split('.')[0])
     pirority=SetPirority(temp_projects)
     print("----------Module wise-----------")
+    mode=0
     modules=Arrange_by_pirority(modules,pirority)
     for i in modules:
         print(i,modules[i])
+    print("---------Preparing Messages-----------")
+    for i in modules:
+        Message(mode,i,modules[i])
+    print("--------Message Prepared----------")
 
 def main():
     root=SettingRoot()
@@ -125,3 +147,5 @@ def main():
 
 if __name__=="__main__":
     main()
+
+input()
