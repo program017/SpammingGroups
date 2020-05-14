@@ -53,7 +53,7 @@ def SanityUpstream():
     modules={}
     temp_projects=[]
     for projects in os.listdir():
-        if str(projects.split('.')[-1])!='xlsx':  #just checking for excel files
+        if str(projects.split('.')[-1])!='xls':  #just checking for excel files
             #print(projects)
             pass
         else:
@@ -89,7 +89,7 @@ def DeltaMerge():
     print("Projects currently in Delta Merge Stage")
     temp_projects=[]
     for projects in os.listdir():
-        if str(projects.split('.')[-1])!='xlsx':  #just checking for excel files
+        if str(projects.split('.')[-1])!='xls':  #just checking for excel files
             #print(projects)
             pass
         else:
