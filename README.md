@@ -1,2 +1,1 @@
-# SpammingGroups
-Tool for spamming groups
+#Delta/Upstream Automation
